@@ -3,11 +3,10 @@ import '../Layout/Sidebar.css';
 import {Link} from 'react-router-dom'
 
 function Sidebar() {
-
-
   return (
     <>
 
+    
     
     <div className='col-md-3'>
     <div className='jg-default-sidebar sticky-top'>
@@ -55,11 +54,7 @@ function Sidebar() {
                 </Link>
                 </li>
 
-                <li className="mb-1">
-                <Link to="/Attendancereport" className="align-items-center rounded ">
-                Attendance Report
-                </Link>
-                </li>
+               
 
                 <li className="mb-1">
                 <Link  to="/Studentorder"  className="  align-items-center rounded ">
@@ -67,13 +62,7 @@ function Sidebar() {
                 </Link>
                 </li>
 
-                <li className="mb-1">
-                <Link  to="/Feesupdate"  className="  align-items-center rounded ">
-                Feesupdate
-                </Link>
-                </li>
-
-               
+                
                
 
                 {/* <li className="mb-1">
@@ -95,7 +84,12 @@ function Sidebar() {
                 </Link>
                 </li>
                
-               
+                <li className="mb-1">
+                <Link to="/Feesupdate" className="  align-items-center rounded ">
+                Fee Update
+                </Link>
+                </li>
+
                 <li className="mb-1">
                 <a className="  align-items-center rounded ">
                 Results & Certificates 

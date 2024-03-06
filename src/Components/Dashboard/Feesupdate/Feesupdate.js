@@ -4,10 +4,6 @@ import Sidebar from '../Student/Layout/Sidebar';
 
 const Feesupdate=()=>{
 
-  const userid=localStorage.getItem('user_id');
-  
-  const username=localStorage.getItem('user_name');
- 
     return(
         <>
       <Profileinner/>
@@ -16,8 +12,8 @@ const Feesupdate=()=>{
     <div className='row'>
     
          <Sidebar/>
-      
-      <div className='col-md-9'>
+ 
+    <div className='col-md-9'>
         <div className='jigs-dashboard-content' style={{padding:'14px'}}>
         <div className='content'>
             <div className='section-title'>
@@ -64,7 +60,7 @@ const Feesupdate=()=>{
 
             <tr>
             <td> 1. </td>
-            <td>{username}</td>
+            <td>Aakash</td>
             <td>Vedic Math</td>  
             <td>05/05/2023</td> 
             <td>2000</td> 
@@ -81,7 +77,7 @@ const Feesupdate=()=>{
             <td>Vedic Math</td>  
             <td>05/05/2023</td> 
             <td>2000</td> 
-            <td>Cash / Online</td>   
+            <td>Cash</td>   
             <td>
                   <span className="rbt-badge-5 " style={{backgroundColor:'#ff000310', color:'#ff0003', padding:'5px 7px',fontSize:'14px'}}> Panding</span>
             </td>

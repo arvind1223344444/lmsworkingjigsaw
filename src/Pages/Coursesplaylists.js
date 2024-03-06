@@ -176,7 +176,7 @@ export default function Coursesplaylists() {
             </div>
           );
         })}
-        <p className="text-muted">By {playListN?.teacher[0].name}</p>
+        <p className="text-muted">By {playListN?.teacher[0]?.name}</p>
       </div>
     </div>
    );
@@ -264,7 +264,7 @@ export default function Coursesplaylists() {
          
          
         
-          <p className="text-muted"> By  {playListN.teacher[0].name} </p>
+          <p className="text-muted"> By  {playListN?.teacher[0]?.name} </p>
         </div>
        </div>
        ))} */}

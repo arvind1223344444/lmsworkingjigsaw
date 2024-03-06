@@ -18,9 +18,8 @@ export default function Coursesplaylists() {
   
   const Chapterclass=async()=>{
   const chatperdata=await axios.get(`${API_FETCH_COURSES_PLAYLIST_SHOW_LIST_URL}/${id}`);
-  setplaychapter(chatperdata.data.response.playlist);
-  setusesltcourse(chatperdata.data.response);
-  console.log(playchapter);
+  setplaychapter(chatperdata?.data?.response?.playlist);
+  setusesltcourse(chatperdata?.data?.response);
   }
   
   useEffect(() => {
@@ -72,15 +71,15 @@ export default function Coursesplaylists() {
                   <div className='col-md-4 my-2'>
                   <div className='text-center d-flex align-items-center justify-content-center'>
                   <div className='teacherp_image me-2'>
-                  <img src={`${imgePATH}${usesltcourse.courseImage}`} className="img-fluid imageddd"  />
+                  <img src={`${imgePATH}${usesltcourse?.courseImage}`} className="img-fluid imageddd"  />
                   </div>
                   </div>
                   </div>
     
                   <div className='col-md-8 my-2'>
                   <div className='coursefdd_details mt-2'>
-                  <h4 className='fw-bold'>{usesltcourse.courseName}</h4>
-                  {/* <p className='text-primary SyllabusTag_clr'> By -  {usesltcourse.teacher && usesltcourse.teacher.length > 0 ? usesltcourse.teacher[0].name : ""}</p> */}
+                  <h4 className='fw-bold'>{usesltcourse?.courseName}</h4>
+                  {/* <p className='text-primary SyllabusTag_clr'> By -  {usesltcourse?.teacher && usesltcourse?.teacher.length > 0 ? usesltcourse?.teacher[0]?.name : ""}</p> */}
                   <p>{usesltcourse.desc}</p>
                   </div>
                   </div>
@@ -142,10 +141,10 @@ export default function Coursesplaylists() {
         {/* {activeButton==='activeButton' ? usesltcourse.map: playchapter.map((playListN,index)=>( */}
        
         {activeButton === 'All_Courses' ?
-  playchapter.map((playListN) =>{ 
+  playchapter?.map((playListN) =>{ 
     // const StartData=playListN.startDate;
 
-    const startDate = new Date(playListN.startDate);
+    const startDate = new Date(playListN?.startDate);
     const sdate = startDate.getDate(); 
     const smonth = startDate.toLocaleString("default", { month: "long" }); 
     const syears = startDate.getFullYear();
@@ -153,38 +152,38 @@ export default function Coursesplaylists() {
    
 
     return (
-    <div className='col-sm-12 col-md-6 col-lg-3' key={playListN._id}>
-      <Link to={`../CourseDetails/${playListN._id}`}>
+    <div className='col-sm-12 col-md-6 col-lg-3' key={playListN?._id}>
+      <Link to={`../CourseDetails/${playListN?._id}`}>
         <div className='popular_co'>
-          <img src={`${imgePATH}${playListN.thumbnail}`} className="img-fluid imageddd" />
+          <img src={`${imgePATH}${playListN?.thumbnail}`} className="img-fluid imageddd" />
         </div>
       </Link>
       <div className='course_cont'>
         <h5 className='text-uppercase'>
-          <span style={{ color: '#225F9D' }}>{playListN.playlist}</span>
-          <span className="badge bg-warning text-dark">{playListN.mode_playlist}</span>
+          <span style={{ color: '#225F9D' }}>{playListN?.playlist}</span>
+          <span className="badge bg-warning text-dark">{playListN?.mode_playlist}</span>
           
         </h5>
         <p className='m-0'>Batch  Data :- {courseStartDate}</p>
-        {playListN.payments.map((paymentsfees, index) => {
+        {playListN?.payments.map((paymentsfees, index) => {
           const payamount = paymentsfees.fee;
-          const discountAmount = (paymentsfees.discount / 100) * payamount;
+          const discountAmount = (paymentsfees?.discount / 100) * payamount;
           const currectAmount = payamount - discountAmount;
           return (
             <div key={index}>
-              <p>{paymentsfees.startDate}</p>
+              <p>{paymentsfees?.startDate}</p>
               <p className="mb-0 mt-2">Price: {currectAmount} Rs. <span className="text-decoration-line-through text-danger">{paymentsfees.fee} Rs.</span> &nbsp; <span className="text-danger">{paymentsfees.discount}% Off</span></p>
             </div>
           );
         })}
-        <p className="text-muted">By {playListN.teacher[0].name}</p>
+        <p className="text-muted">By {playListN?.teacher[0].name}</p>
       </div>
     </div>
    );
   }) :
-  fillterCourselist.playlist?.map((courseModule) => {
+  fillterCourselist?.playlist?.map((courseModule) => {
 
-    const startDate = new Date(courseModule.startDate);
+    const startDate = new Date(courseModule?.startDate);
     const sdate = startDate.getDate(); 
     const smonth = startDate.toLocaleString("default", { month: "long" }); 
     const syears = startDate.getFullYear();
@@ -192,34 +191,34 @@ export default function Coursesplaylists() {
    
 
     return(
-    <div className='col-sm-12 col-md-6 col-lg-3' key={courseModule._id}>
+    <div className='col-sm-12 col-md-6 col-lg-3' key={courseModule?._id}>
       {/* {courseModule?.id}hjh */}
-      <Link to={`../CourseDetails/${courseModule._id}`}>
+      <Link to={`../CourseDetails/${courseModule?._id}`}>
         <div className='popular_co'>
-          <img src={`${imgePATH}${courseModule.thumbnail}`} className="img-fluid imageddd" />
+          <img src={`${imgePATH}${courseModule?.thumbnail}`} className="img-fluid imageddd" />
         </div>
       </Link>
 
       <div className='course_cont'>
         <h5 className='text-uppercase'>
-          <span style={{ color: '#225F9D' }}>{courseModule.playlist}</span>
-          <span className="badge bg-warning text-dark">{courseModule.mode_playlist}</span>
+          <span style={{ color: '#225F9D' }}>{courseModule?.playlist}</span>
+          <span className="badge bg-warning text-dark">{courseModule?.mode_playlist}</span>
           
         </h5>
         <p className='m-0'>Batch  Data :- {courseStartDate}</p>
 
-        {courseModule.payments.map((paymentsfees, index) => {
-          const payamount = paymentsfees.fee;
-          const discountAmount = (paymentsfees.discount / 100) * payamount;
+        {courseModule?.payments.map((paymentsfees, index) => {
+          const payamount = paymentsfees?.fee;
+          const discountAmount = (paymentsfees?.discount / 100) * payamount;
           const currectAmount = payamount - discountAmount;
           return (
             <div key={index}>
-              <p>{paymentsfees.startDate}</p>
+              <p>{paymentsfees?.startDate}</p>
               <p className="mb-0 mt-2">Price: {currectAmount} Rs. <span className="text-decoration-line-through text-danger">{paymentsfees.fee} Rs.</span> &nbsp; <span className="text-danger">{paymentsfees.discount}% Off</span></p>
             </div>
           );
         })}
-        <p className="text-muted">By {courseModule.teacher[0].name}</p>
+        <p className="text-muted">By {courseModule?.teacher[0]?.name}</p>
         
         </div>
     </div>
